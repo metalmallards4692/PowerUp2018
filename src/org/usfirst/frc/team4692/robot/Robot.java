@@ -8,8 +8,10 @@
 package org.usfirst.frc.team4692.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -18,11 +20,13 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class Robot extends TimedRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain;
+	
 
 	@Override
 	public void robotInit() {
 		oi = new OI();
 		drivetrain = new DriveTrain();
+		
 	}
 
 	@Override
@@ -45,11 +49,14 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-
-	}
+		
+	}	
 
 	@Override
 	public void teleopPeriodic() {
+		double throttle = (1.0 - Robot.oi.LEFT_JOY.getThrottle()) / -2.0;
+		
+		Robot.drivetrain.set(ControlMode.PercentOutput, Robot.oi.getLeftJoyY() * throttle, Robot.oi.getRightJoyY() * throttle);
 	}
 
 	@Override
