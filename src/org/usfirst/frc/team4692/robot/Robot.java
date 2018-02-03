@@ -8,6 +8,7 @@
 package org.usfirst.frc.team4692.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
@@ -54,9 +55,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		double throttle = (1.0 - Robot.oi.LEFT_JOY.getThrottle()) / -2.0;
-		
-		Robot.drivetrain.set(ControlMode.PercentOutput, Robot.oi.getLeftJoyY() * throttle, Robot.oi.getRightJoyY() * throttle);
+		Scheduler.getInstance().run();
 	}
 
 	@Override

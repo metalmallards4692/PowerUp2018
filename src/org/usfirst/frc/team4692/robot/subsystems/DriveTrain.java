@@ -27,11 +27,12 @@ public class DriveTrain extends Subsystem {
 		
 		LeftMotorFollower.follow(LeftMotor);
 		RightMotorFollower.follow(RightMotor);
+		
 	}
 
 	public void set(ControlMode mode, double leftvalue, double rightvalue) {
 		LeftMotor.set(mode, leftvalue);
-		RightMotor.set(mode, rightvalue);
+		RightMotor.set(mode, -rightvalue);
 		
 	}
 
