@@ -19,14 +19,20 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class Robot extends TimedRobot {
-	public static OI oi;
+	public static Elevator elevator;
+	public static Intake intake;
+	public static Slide slide;
 	public static DriveTrain drivetrain;
+	public static OI oi;
 	
 
 	@Override
 	public void robotInit() {
-		oi = new OI();
+		elevator = new Elevator();
 		drivetrain = new DriveTrain();
+		slide = new Slide();
+		intake = new Intake();
+		oi = new OI();
 		
 	}
 
