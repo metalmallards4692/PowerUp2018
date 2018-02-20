@@ -8,8 +8,10 @@
 package org.usfirst.frc.team4692.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import org.usfirst.frc.team4692.robot.commands.SlideUp;
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -25,7 +27,8 @@ public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
 	public static OI oi;
 	
-
+Command autonomousCommand;
+	
 	@Override
 	public void robotInit() {
 		elevator = new Elevator();
@@ -33,7 +36,7 @@ public class Robot extends TimedRobot {
 		slide = new Slide();
 		intake = new Intake();
 		oi = new OI();
-		
+		autonomousCommand = new SlideUp();
 	}
 
 	@Override
@@ -47,12 +50,14 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-
+		 if (autonomousCommand != null) autonomousCommand.start();
 	}
 
 	@Override
 	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
 	}
+
 
 	@Override
 	public void teleopInit() {

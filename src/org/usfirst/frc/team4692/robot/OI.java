@@ -6,10 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team4692.robot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4692.robot.commands.IntakeBackward;
 import org.usfirst.frc.team4692.robot.commands.IntakeForward;
 import org.usfirst.frc.team4692.robot.commands.SlideDown;
 import org.usfirst.frc.team4692.robot.commands.SlideUp;
+import org.usfirst.frc.team4692.robot.commands.TankDrive;
 import org.usfirst.frc.team4692.robot.commands.elevatorDown;
 import org.usfirst.frc.team4692.robot.commands.elevatorUp;
 import edu.wpi.first.wpilibj.Joystick;
@@ -59,6 +61,9 @@ public class OI {
 		gamepad_R1.whileHeld(new SlideDown());
 		gamepad_A.whileHeld(new IntakeForward());
 		gamepad_Y.whileHeld(new IntakeBackward());
+		
+		SmartDashboard.putData("TankDrive", new TankDrive());
+		SmartDashboard.putData("Slide", new SlideUp());
 	}
 	public Joystick getGamepad() {
 		return gamepad;
