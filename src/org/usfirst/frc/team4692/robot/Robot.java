@@ -14,21 +14,22 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import org.usfirst.frc.team4692.robot.commands.SlideUp;
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
+import edu.wpi.first.wpilibj.CameraServer;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 public class Robot extends TimedRobot {
+	private CameraServer camera;
 	public static Elevator elevator;
 	public static Intake intake;
 	public static Slide slide;
 	public static DriveTrain drivetrain;
 	public static OI oi;
-	
-Command autonomousCommand;
-	
+
+	Command autonomousCommand;
+
 	@Override
 	public void robotInit() {
 		elevator = new Elevator();
@@ -37,6 +38,8 @@ Command autonomousCommand;
 		intake = new Intake();
 		oi = new OI();
 		autonomousCommand = new SlideUp();
+		camera = CameraServer.getInstance();
+		camera.startAutomaticCapture();
 	}
 
 	@Override
@@ -50,7 +53,8 @@ Command autonomousCommand;
 
 	@Override
 	public void autonomousInit() {
-		 if (autonomousCommand != null) autonomousCommand.start();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 	}
 
 	@Override
@@ -58,11 +62,10 @@ Command autonomousCommand;
 		Scheduler.getInstance().run();
 	}
 
-
 	@Override
 	public void teleopInit() {
-		
-	}	
+
+	}
 
 	@Override
 	public void teleopPeriodic() {
