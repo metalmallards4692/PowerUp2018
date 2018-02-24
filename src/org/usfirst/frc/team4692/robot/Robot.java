@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import org.usfirst.frc.team4692.robot.commands.Autonomous;
 import org.usfirst.frc.team4692.robot.commands.SlideUp;
+import org.usfirst.frc.team4692.robot.commands.autonomous;
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
@@ -26,18 +28,19 @@ public class Robot extends TimedRobot {
 	public static Intake intake;
 	public static Slide slide;
 	public static DriveTrain drivetrain;
+	public static Autonomous autonomous;
 	public static OI oi;
 
-	Command autonomousCommand;
+	
 
 	@Override
 	public void robotInit() {
 		elevator = new Elevator();
 		drivetrain = new DriveTrain();
 		slide = new Slide();
-		intake = new Intake();
+		intake = new Intake();		
+		autonomous = new Autonomous();
 		oi = new OI();
-		autonomousCommand = new SlideUp();
 		camera = CameraServer.getInstance();
 		camera.startAutomaticCapture();
 	}
@@ -53,8 +56,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		if (autonomous != null) autonomous.start();
 	}
 
 	@Override
