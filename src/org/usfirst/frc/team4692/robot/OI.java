@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team4692.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team4692.robot.commands.DriveDownShift;
+import org.usfirst.frc.team4692.robot.commands.DriveUpShift;
 import org.usfirst.frc.team4692.robot.commands.IntakeBackward;
 import org.usfirst.frc.team4692.robot.commands.IntakeForward;
 import org.usfirst.frc.team4692.robot.commands.SlideDown;
@@ -27,6 +30,8 @@ public class OI {
 	Button gamepad_R1;
 	Button gamepad_A;
 	Button gamepad_Y;
+	Button btnDriveShiftDown;
+	Button btnDriveShiftUp;
 	public static final double JOY_DEADZONE = 0.05;
 	public final Joystick LEFT_JOY = new Joystick(RobotMap.LEFT_JOYSTICK.value);
 	public final Joystick RIGHT_JOY = new Joystick(RobotMap.RIGHT_JOYSTICK.value);
@@ -53,14 +58,18 @@ public class OI {
 		gamepad_start = new JoystickButton(gamepad, RobotMap.GAMEPAD_START.value);
 		gamepad_L1 = new JoystickButton(gamepad, RobotMap.GAMEPAD_L1.value);
 		gamepad_R1 = new JoystickButton(gamepad, RobotMap.GAMEPAD_R1.value);
-		gamepad_A = new JoystickButton(gamepad, RobotMap.GAMEPAD_Y.value);
+		gamepad_A = new JoystickButton(gamepad, RobotMap.GAMEPAD_A.value);
 		gamepad_Y = new JoystickButton(gamepad, RobotMap.GAMEPAD_Y.value);
+		btnDriveShiftUp = new JoystickButton(RIGHT_JOY, RobotMap.BTNDRIVESHIFTUP.value);
+		btnDriveShiftDown = new JoystickButton(LEFT_JOY, RobotMap.BTNDRIVESHIFTDOWN.value);
 		gamepad_back.whileHeld(new elevatorUp());
 		gamepad_start.whileHeld(new elevatorDown());
 		gamepad_L1.whileHeld(new SlideUp());
 		gamepad_R1.whileHeld(new SlideDown());
 		gamepad_A.whileHeld(new IntakeForward());
 		gamepad_Y.whileHeld(new IntakeBackward());
+        btnDriveShiftUp.whenPressed(new DriveUpShift());
+        btnDriveShiftDown.whenPressed(new DriveDownShift());
 		
 		SmartDashboard.putData("TankDrive", new TankDrive());
 		SmartDashboard.putData("Slide", new SlideUp());

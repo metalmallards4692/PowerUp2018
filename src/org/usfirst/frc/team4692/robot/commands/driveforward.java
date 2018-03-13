@@ -17,7 +17,7 @@ public class driveforward extends Command {
     	driveTimer.start();
     }
     protected void execute() {
-    	Robot.drivetrain.set(ControlMode.PercentOutput, .75, -.75);
+    	Robot.drivetrain.set(ControlMode.PercentOutput, .5, .5);
     }
     protected boolean isFinished() {
         return (driveTimer.get()>2.0);

@@ -8,12 +8,11 @@
 package org.usfirst.frc.team4692.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
+//import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team4692.robot.commands.Autonomous;
-import org.usfirst.frc.team4692.robot.commands.SlideUp;
-import org.usfirst.frc.team4692.robot.commands.autonomous;
+//import org.usfirst.frc.team4692.robot.commands.SlideUp;
 import org.usfirst.frc.team4692.robot.subsystems.*;
 
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
@@ -29,6 +28,8 @@ public class Robot extends TimedRobot {
 	public static Slide slide;
 	public static DriveTrain drivetrain;
 	public static Autonomous autonomous;
+	public static Shift driveshift;
+	//public static subCompressor subcompressor;
 	public static OI oi;
 
 	
@@ -40,6 +41,8 @@ public class Robot extends TimedRobot {
 		slide = new Slide();
 		intake = new Intake();		
 		autonomous = new Autonomous();
+		driveshift = new Shift();
+		//subcompressor = new subCompressor();
 		oi = new OI();
 		camera = CameraServer.getInstance();
 		camera.startAutomaticCapture();

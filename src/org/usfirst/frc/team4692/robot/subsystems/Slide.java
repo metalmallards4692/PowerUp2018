@@ -10,15 +10,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Slide extends Subsystem {
-	private WPI_TalonSRX LeftSlideMotor = new WPI_TalonSRX(RobotMap.LEFTSLIDEMOTOR.value);
-	private WPI_TalonSRX LeftSlideFollower  = new WPI_TalonSRX(RobotMap.LEFTSLIDEFOLLOWER.value);
+	private WPI_TalonSRX LeftSlideMotor;
+	private WPI_TalonSRX LeftSlideFollower; 
 
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new SlideStop());
 	}
 
-	public void slide() {
+	public Slide() {
 		LeftSlideMotor = new WPI_TalonSRX(RobotMap.LEFTSLIDEMOTOR.value);
 		LeftSlideFollower = new WPI_TalonSRX(RobotMap.LEFTSLIDEFOLLOWER.value);
 		Robot.initTalon(LeftSlideMotor);
@@ -31,11 +31,11 @@ public class Slide extends Subsystem {
 	}
 	
 	public void slideUp() {
-		LeftSlideMotor.set(.3);
+		LeftSlideMotor.set(7.0);
 	}
 	
 	public void slideDown() {
-		LeftSlideMotor.set(-.3);
+		LeftSlideMotor.set(-1.0);
 	}
 	
 	public void slideStop() {

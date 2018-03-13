@@ -19,10 +19,10 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void up() {
-		ElevatorMotor.set(.3);
+		ElevatorMotor.set(10.0);
 	}
 	public void down() {
-		ElevatorMotor.set(-.3);
+		ElevatorMotor.set(-1.0);
 	}
 	public void stop() {
 		ElevatorMotor.set(0);

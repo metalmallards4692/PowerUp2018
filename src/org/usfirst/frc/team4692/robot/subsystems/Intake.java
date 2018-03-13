@@ -9,10 +9,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Intake extends Subsystem {
-	private  WPI_TalonSRX IntakeLeftMotor = new WPI_TalonSRX(RobotMap.INTAKELEFTMOTOR.value);
-	private  WPI_TalonSRX IntakeLeftMotorFollower = new WPI_TalonSRX(RobotMap.INTAKELEFTMOTORFOLLOWER.value);
-	private  WPI_TalonSRX IntakeRightMotor = new WPI_TalonSRX(RobotMap.INTAKERIGHTMOTOR.value);
-	private  WPI_TalonSRX IntakeRightMotorFollower = new WPI_TalonSRX(RobotMap.INTAKERIGHTMOTORFOLLOWER.value);
+	private  WPI_TalonSRX IntakeLeftMotor;
+	private  WPI_TalonSRX IntakeLeftMotorFollower;
+	private  WPI_TalonSRX IntakeRightMotor;
+	private  WPI_TalonSRX IntakeRightMotorFollower;
 
 	@Override
 	public void initDefaultCommand() {
@@ -20,7 +20,7 @@ public class Intake extends Subsystem {
 		setDefaultCommand(new IntakeStop());
 
 	}
-	public void intake() {
+	public Intake() {
 		IntakeLeftMotor = new WPI_TalonSRX(RobotMap.INTAKELEFTMOTOR.value);
 		IntakeLeftMotorFollower = new WPI_TalonSRX(RobotMap.INTAKELEFTMOTORFOLLOWER.value);
 		IntakeRightMotor = new WPI_TalonSRX(RobotMap.INTAKERIGHTMOTOR.value);
@@ -36,12 +36,12 @@ public class Intake extends Subsystem {
 		
 	}
 	public void spinInwards(double output) {
-		IntakeLeftMotor.set(output);
-		IntakeRightMotor.set(output);
+		IntakeLeftMotor.set(-output);
+		IntakeRightMotor.set(-output);
 	}
 	public void spinOutwards(double output) {
-		IntakeLeftMotor.set(output);
-		IntakeRightMotor.set(output);
+		IntakeLeftMotor.set(-output);
+		IntakeRightMotor.set(-output);
 	}
 	public void setBothMotors(double output) {
 		IntakeLeftMotor.set(output);

@@ -14,7 +14,8 @@ public class IntakeForward extends Command {
 	}
 	@Override
 	protected void execute() {
-		Robot.intake.spinInwards(-.5);
+		Robot.intake.spinInwards(-.7);
+		
 	}
 	@Override
 	protected boolean isFinished() {

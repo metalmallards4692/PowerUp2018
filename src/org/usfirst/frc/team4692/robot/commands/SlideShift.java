@@ -11,7 +11,6 @@ public class SlideShift extends Command {
 	
 	protected void initialize() {
 	}
-	
 	protected void execute() {
 	}
 	

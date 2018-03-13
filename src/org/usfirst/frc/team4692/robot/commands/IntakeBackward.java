@@ -10,10 +10,11 @@ public class IntakeBackward extends Command {
 	}
 	@Override
 	protected void initialize() {
-		Robot.intake.spinOutwards(1.0);
+		//Robot.intake.spinOutwards(1.0);
 	}
 	@Override
 	protected void execute() {
+		Robot.intake.spinOutwards(.7);
 		
 	}
 	@Override
