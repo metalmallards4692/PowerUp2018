@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
 	public static Slide slide;
 	public static DriveTrain drivetrain;
 	public static Autonomous autonomous;
-	public static Shift driveshift;
+	public static Shift slideshift;
 	public static Arm arm;
 	//public static subCompressor subcompressor;
 	public static OI oi;
@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 		slide = new Slide();
 		intake = new Intake();		
 		autonomous = new Autonomous();
-		driveshift = new Shift();
+		slideshift = new Shift();
 		arm = new Arm();
 		//subcompressor = new subCompressor();
 		oi = new OI();
