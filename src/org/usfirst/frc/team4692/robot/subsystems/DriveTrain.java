@@ -11,22 +11,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem {
 	private WPI_TalonSRX LeftMotor;
-	private WPI_TalonSRX LeftMotorFollower;
+	//private WPI_TalonSRX LeftMotorFollower;
 	private WPI_TalonSRX RightMotor;
-	private WPI_TalonSRX RightMotorFollower;
+	//private WPI_TalonSRX RightMotorFollower;
 
 	public DriveTrain() {
 		LeftMotor = new WPI_TalonSRX(RobotMap.LEFTMOTOR.value);
 		RightMotor = new WPI_TalonSRX(RobotMap.RIGHTMOTOR.value);
-		LeftMotorFollower = new WPI_TalonSRX(RobotMap.LEFT_FOLLOW_MOTOR.value);
-		RightMotorFollower = new WPI_TalonSRX(RobotMap.RIGHT_FOLLOW_MOTOR.value);
+		//LeftMotorFollower = new WPI_TalonSRX(RobotMap.LEFT_FOLLOW_MOTOR.value);
+		//RightMotorFollower = new WPI_TalonSRX(RobotMap.RIGHT_FOLLOW_MOTOR.value);
 		Robot.initTalon(LeftMotor);
 		Robot.initTalon(RightMotor);
-		Robot.initTalon(LeftMotorFollower);
-		Robot.initTalon(RightMotorFollower);
+		//Robot.initTalon(LeftMotorFollower);
+		//Robot.initTalon(RightMotorFollower);
 		
-		LeftMotorFollower.follow(LeftMotor);
-		RightMotorFollower.follow(RightMotor);
+		//LeftMotorFollower.follow(LeftMotor);
+		//RightMotorFollower.follow(RightMotor);
 		
 	}
 

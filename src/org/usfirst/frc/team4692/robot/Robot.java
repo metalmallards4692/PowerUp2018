@@ -18,6 +18,7 @@ import org.usfirst.frc.team4692.robot.subsystems.*;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import edu.wpi.first.wpilibj.CameraServer;
+
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -29,6 +30,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
 	public static Autonomous autonomous;
 	public static Shift driveshift;
+	public static Arm arm;
 	//public static subCompressor subcompressor;
 	public static OI oi;
 
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
 		intake = new Intake();		
 		autonomous = new Autonomous();
 		driveshift = new Shift();
+		arm = new Arm();
 		//subcompressor = new subCompressor();
 		oi = new OI();
 		camera = CameraServer.getInstance();
