@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4692.robot.commands.ArmClose;
 import org.usfirst.frc.team4692.robot.commands.ArmOpen;
-import org.usfirst.frc.team4692.robot.commands.DriveDownShift;
-import org.usfirst.frc.team4692.robot.commands.DriveUpShift;
 import org.usfirst.frc.team4692.robot.commands.IntakeBackward;
 import org.usfirst.frc.team4692.robot.commands.IntakeForward;
+import org.usfirst.frc.team4692.robot.commands.LiftDown;
+import org.usfirst.frc.team4692.robot.commands.LiftUp;
 import org.usfirst.frc.team4692.robot.commands.SlideDown;
 import org.usfirst.frc.team4692.robot.commands.SlideDownShift;
 import org.usfirst.frc.team4692.robot.commands.SlideUp;
@@ -38,8 +38,8 @@ public class OI {
 	Button gamepad_Y;
 	Button gamepad_L3;
 	Button gamepad_R3;
-	//Button btnDriveShiftDown;
-	//Button btnDriveShiftUp;
+	Button btnLiftUp;
+	Button btnLiftDown;
 	public static final double JOY_DEADZONE = 0.05;
 	public final Joystick LEFT_JOY = new Joystick(RobotMap.LEFT_JOYSTICK.value);
 	public final Joystick RIGHT_JOY = new Joystick(RobotMap.RIGHT_JOYSTICK.value);
@@ -72,8 +72,8 @@ public class OI {
 		gamepad_Y = new JoystickButton(gamepad, RobotMap.GAMEPAD_Y.value);
 		gamepad_L3 = new JoystickButton(gamepad, RobotMap.GAMEPAD_L3.value);
 		gamepad_R3 = new JoystickButton(gamepad, RobotMap.GAMEPAD_R3.value);
-		//btnDriveShiftUp = new JoystickButton(RIGHT_JOY, RobotMap.BTNDRIVESHIFTUP.value);
-		//btnDriveShiftDown = new JoystickButton(LEFT_JOY, RobotMap.BTNDRIVESHIFTDOWN.value);
+		btnLiftUp = new JoystickButton(RIGHT_JOY, RobotMap.BTNLIFTUP.value);
+		btnLiftDown = new JoystickButton(LEFT_JOY, RobotMap.BTNLIFTDOWN.value);
 		gamepad_back.whileHeld(new elevatorUp());
 		gamepad_start.whileHeld(new elevatorDown());
 		gamepad_X.whenPressed(new ArmClose());
@@ -84,8 +84,8 @@ public class OI {
 		gamepad_Y.whileHeld(new IntakeBackward());
 		gamepad_L3.whenPressed(new SlideDownShift());
 		gamepad_R3.whenPressed(new SlideUpShift());
-        //btnDriveShiftUp.whenPressed(new DriveUpShift());
-        //btnDriveShiftDown.whenPressed(new DriveDownShift());
+        btnLiftUp.whenPressed(new LiftUp());
+        btnLiftDown.whenPressed(new LiftDown());
 		
 		SmartDashboard.putData("TankDrive", new TankDrive());
 		SmartDashboard.putData("Slide", new SlideUp());
