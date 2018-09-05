@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4692.robot.commands;
 
 import org.usfirst.frc.team4692.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SlideDownShift extends Command {

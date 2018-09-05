@@ -8,20 +8,16 @@ public class SlideShift extends Command {
 	public SlideShift(boolean highGear) {
 		this.highGear = false;
 	}
-	
-	protected void initialize() {
+ 	protected void initialize() {
 	}
 	protected void execute() {
 	}
-	
 	@Override
 	protected boolean isFinished() {
 		return true;
 	}
-	
 	protected void end() {
 	}
-
 	protected void interrupted() {
 	}
 }

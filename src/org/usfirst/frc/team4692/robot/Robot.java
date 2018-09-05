@@ -10,15 +10,13 @@ package org.usfirst.frc.team4692.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-
 import org.usfirst.frc.team4692.robot.commands.Autonomous;
 //import org.usfirst.frc.team4692.robot.commands.SlideUp;
 import org.usfirst.frc.team4692.robot.subsystems.*;
-
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
-
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -34,6 +32,7 @@ public class Robot extends TimedRobot {
 	public static Arm arm;
 	//public static subCompressor subcompressor;
 	public static OI oi;
+	public static Object driveshift;
 
 	
 
@@ -50,7 +49,9 @@ public class Robot extends TimedRobot {
 		//subcompressor = new subCompressor();
 		oi = new OI();
 		camera = CameraServer.getInstance();
-		camera.startAutomaticCapture();
+		UsbCamera cam = camera.startAutomaticCapture();
+		cam.setResolution(160,120);
+		//cam.setFPS(30);
 	}
 
 	@Override

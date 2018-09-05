@@ -15,22 +15,19 @@ public class Intake extends Subsystem {
 	@Override
 	public void initDefaultCommand() {
 		setDefaultCommand(new IntakeStop());
-
 	}
 	public Intake() {
 		IntakeLeftMotor = new WPI_TalonSRX(RobotMap.INTAKELEFTMOTOR.value);
 		IntakeRightMotor = new WPI_TalonSRX(RobotMap.INTAKERIGHTMOTOR.value);
 		Robot.initTalon(IntakeLeftMotor);
 		Robot.initTalon(IntakeRightMotor);
-		
-		
 	}
 	public void spinInwards(double output) {
-		IntakeLeftMotor.set(-output);
+		IntakeLeftMotor.set(output);
 		IntakeRightMotor.set(-output);
 	}
 	public void spinOutwards(double output) {
-		IntakeLeftMotor.set(-output);
+		IntakeLeftMotor.set(output);
 		IntakeRightMotor.set(-output);
 	}
 	public void setBothMotors(double output) {

@@ -5,7 +5,6 @@ import org.usfirst.frc.team4692.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class IntakeForward extends Command {
-	
 	public IntakeForward() {
 		requires(Robot.intake);
 	}
@@ -15,11 +14,9 @@ public class IntakeForward extends Command {
 	@Override
 	protected void execute() {
 		Robot.intake.spinInwards(-.7);
-		
 	}
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Slide extends Subsystem {
 	private WPI_TalonSRX LeftSlideMotor;
-	private WPI_TalonSRX LeftSlideFollower; 
+	//private WPI_TalonSRX LeftSlideFollower; 
 
 	@Override
 	protected void initDefaultCommand() {
@@ -20,10 +20,10 @@ public class Slide extends Subsystem {
 
 	public Slide() {
 		LeftSlideMotor = new WPI_TalonSRX(RobotMap.LEFTSLIDEMOTOR.value);
-		LeftSlideFollower = new WPI_TalonSRX(RobotMap.LEFTSLIDEFOLLOWER.value);
+		//LeftSlideFollower = new WPI_TalonSRX(RobotMap.LEFTSLIDEFOLLOWER.value);
 		Robot.initTalon(LeftSlideMotor);
-		Robot.initTalon(LeftSlideFollower);
-		LeftSlideFollower.follow(LeftSlideMotor);
+		//Robot.initTalon(LeftSlideFollower);
+		//LeftSlideFollower.follow(LeftSlideMotor);
 
 	}
 	@Override
@@ -31,7 +31,7 @@ public class Slide extends Subsystem {
 	}
 	
 	public void slideUp() {
-		LeftSlideMotor.set(7.0);
+		LeftSlideMotor.set(.5);
 	}
 	
 	public void slideDown() {

@@ -1,19 +1,19 @@
 package org.usfirst.frc.team4692.robot.commands;
 
-import org.usfirst.frc.team4692.robot.Robot;
+//import org.usfirst.frc.team4692.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveUpShift extends Command {
 	  public DriveUpShift() {
-	        requires(Robot.driveshift);
+	        //requires(Robot.driveshift);
 	    }
 	    protected void initialize() {
-	    	Robot.driveshift.driveShiftUp();
+	    	//Robot.driveshift.driveShiftUp();
 	    }
 	    protected void execute() {
 	    	//Robot.subcompressor.startComp();
-	    	Robot.driveshift.driveShiftUp();
+	    	//Robot.driveshift.driveShiftUp();
 	    }
 
 	@Override
@@ -22,7 +22,7 @@ public class DriveUpShift extends Command {
 		return false;
 	}
 	protected void end() {
-    	Robot.driveshift.driveShiftStop();
+    	//Robot.driveshift.driveShiftStop();
     }
 
 }

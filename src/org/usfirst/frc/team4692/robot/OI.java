@@ -12,8 +12,8 @@ import org.usfirst.frc.team4692.robot.commands.ArmClose;
 import org.usfirst.frc.team4692.robot.commands.ArmOpen;
 import org.usfirst.frc.team4692.robot.commands.IntakeBackward;
 import org.usfirst.frc.team4692.robot.commands.IntakeForward;
-import org.usfirst.frc.team4692.robot.commands.LiftDown;
-import org.usfirst.frc.team4692.robot.commands.LiftUp;
+//import org.usfirst.frc.team4692.robot.commands.LiftDown;
+//import org.usfirst.frc.team4692.robot.commands.LiftUp;
 import org.usfirst.frc.team4692.robot.commands.SlideDown;
 import org.usfirst.frc.team4692.robot.commands.SlideDownShift;
 import org.usfirst.frc.team4692.robot.commands.SlideUp;
@@ -40,6 +40,8 @@ public class OI {
 	Button gamepad_R3;
 	Button btnLiftUp;
 	Button btnLiftDown;
+	JoystickButton btn_R1;
+	JoystickButton btn_L1;
 	public static final double JOY_DEADZONE = 0.05;
 	public final Joystick LEFT_JOY = new Joystick(RobotMap.LEFT_JOYSTICK.value);
 	public final Joystick RIGHT_JOY = new Joystick(RobotMap.RIGHT_JOYSTICK.value);
@@ -74,6 +76,9 @@ public class OI {
 		gamepad_R3 = new JoystickButton(gamepad, RobotMap.GAMEPAD_R3.value);
 		btnLiftUp = new JoystickButton(RIGHT_JOY, RobotMap.BTNLIFTUP.value);
 		btnLiftDown = new JoystickButton(LEFT_JOY, RobotMap.BTNLIFTDOWN.value);
+		btn_R1 = new JoystickButton(LEFT_JOY, RobotMap.BTN_R1.value);
+		btn_L1 = new JoystickButton(RIGHT_JOY, RobotMap.BTN_L1.value);
+		//Commands
 		gamepad_back.whileHeld(new elevatorUp());
 		gamepad_start.whileHeld(new elevatorDown());
 		gamepad_X.whenPressed(new ArmClose());
@@ -84,9 +89,10 @@ public class OI {
 		gamepad_Y.whileHeld(new IntakeBackward());
 		gamepad_L3.whenPressed(new SlideDownShift());
 		gamepad_R3.whenPressed(new SlideUpShift());
-        btnLiftUp.whenPressed(new LiftUp());
-        btnLiftDown.whenPressed(new LiftDown());
-		
+        //btnLiftUp.whenPressed(new LiftUp());
+        //btnLiftDown.whenPressed(new LiftDown());
+		btn_R1.whenPressed(new SlideUpShift());
+		btn_L1.whenPressed(new SlideDownShift());
 		SmartDashboard.putData("TankDrive", new TankDrive());
 		SmartDashboard.putData("Slide", new SlideUp());
 	}

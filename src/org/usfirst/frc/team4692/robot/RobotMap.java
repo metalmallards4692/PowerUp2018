@@ -11,10 +11,10 @@ public enum RobotMap {
 	//Motor setup
 	//RIGHT_FOLLOW_MOTOR(24),
 	RIGHTMOTOR(25),
-	//LEFT_FOLLOW_MOTOR(26),
+	LEFT_FOLLOW_MOTOR(26),
 	LEFTMOTOR(27),
 	LEFTSLIDEMOTOR(28),
-	LEFTSLIDEFOLLOWER(29),
+	//LEFTSLIDEFOLLOWER(29),
 	ELEVATORMOTOR(30),
 	INTAKELEFTMOTOR(31),
 	INTAKERIGHTMOTOR(33),
@@ -28,13 +28,14 @@ public enum RobotMap {
 	GAMEPAD_B(2),
 	GAMEPAD_X(3),
 	GAMEPAD_Y(4),
-	GAMEPAD_L1(5),
-	GAMEPAD_R1(6),
+	GAMEPAD_R1(5),
+	GAMEPAD_L1(6),
 	GAMEPAD_BACK(7),
 	GAMEPAD_START(8),
 	GAMEPAD_L3(9),
-	GAMEPAD_R3(10);
-	
+	GAMEPAD_R3(10),
+	BTN_R1(1),
+	BTN_L1(1);
 	
 	
 	
@@ -42,7 +43,7 @@ public enum RobotMap {
 	
 	public final int value;
 	
-	RobotMap(int value) {
+	RobotMap(int value) { 
 		this.value = value;
 	}
 }

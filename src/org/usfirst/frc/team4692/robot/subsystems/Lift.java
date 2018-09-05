@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 	public class Lift extends Subsystem {
-	public static DoubleSolenoid lift = new DoubleSolenoid(0,2,3);
+	public static DoubleSolenoid lift = new DoubleSolenoid(0,4,5);
 	
 	@Override
 	protected void initDefaultCommand() {

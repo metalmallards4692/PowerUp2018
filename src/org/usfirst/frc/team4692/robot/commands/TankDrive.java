@@ -17,8 +17,7 @@ public class TankDrive extends Command {
 	}
 	
 	protected void execute() {
-		double throttle = (1.0 - Robot.oi.LEFT_JOY.getThrottle()) / -0.7;
-	
+		double throttle = (1.0 - Robot.oi.LEFT_JOY.getThrottle()) / -1;
 		Robot.drivetrain.set(ControlMode.PercentOutput, Robot.oi.getLeftJoyY() * throttle, Robot.oi.getRightJoyY() * throttle);
 	}
 	
